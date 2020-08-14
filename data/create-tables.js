@@ -22,7 +22,8 @@ async function run() {
                     name VARCHAR(90) NOT NULL,
                     breed VARCHAR(90) NOT NULL,
                     age INTEGER NOT NULL,
-                    fed_recently BOOLEAN NOT NULL
+                    fed_recently BOOLEAN NOT NULL,
+                    owner_id INTEGER NOT NULL REFERENCES users(id)
             );
         `);
 
