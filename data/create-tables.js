@@ -16,6 +16,10 @@ async function run() {
                     id SERIAL PRIMARY KEY,
                     email VARCHAR(256) NOT NULL,
                     hash VARCHAR(512) NOT NULL
+                );
+                CREATE TABLE toys (
+                  id SERIAL PRIMARY KEY NOT NULL,
+                  favorite_toy VARCHAR(256) NOT NULL,
                 );           
                 CREATE TABLE cats (
                     id SERIAL PRIMARY KEY NOT NULL,
@@ -23,7 +27,8 @@ async function run() {
                     breed VARCHAR(90) NOT NULL,
                     age INTEGER NOT NULL,
                     fed_recently BOOLEAN NOT NULL,
-                    owner_id INTEGER NOT NULL REFERENCES users(id)
+                    owner_id INTEGER NOT NULL REFERENCES users(id),
+                    toy_id INTEGER NOT NULL REFERENCES toys(id)
             );
         `);
 
